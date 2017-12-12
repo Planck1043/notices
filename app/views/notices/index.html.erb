@@ -1,0 +1,16 @@
+<h1>Listing Notices</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @notices.each do |notice| %>
+    <tr>
+      <td><%= notice.title %></td>
+      <td><%= notice.text %></td>
+      <td><%= link_to 'Show', notice_path(notice) %></td>
+    </tr>
+  <% end %>
+</table>
