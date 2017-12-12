@@ -4,6 +4,7 @@ class NoticesController < ApplicationController
   end
 
   def new
+    @notice = Notice.new
   end
 
   def create
@@ -18,6 +19,20 @@ class NoticesController < ApplicationController
 
   def show
     @notice = Notice.find(params[:id])
+  end
+
+  def edit
+    @notice = Notice.find(params[:id])
+  end
+
+  def update
+    @notice = Notice.find(params[:id])
+
+    if @notice.update(notice_params)
+      redirect_to @notice
+    else
+      render 'edit'
+    end
   end
 
   private
