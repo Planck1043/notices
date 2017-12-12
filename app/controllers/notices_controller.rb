@@ -7,7 +7,10 @@ class NoticesController < ApplicationController
   end
 
   def create
-    render plain: params[:article].inspect
+    @notice = Notice.new(notice_params)
+    @notice.save
+
+    redirect_to @notice
   end
 
   def show
@@ -17,6 +20,6 @@ class NoticesController < ApplicationController
   private
 
   def notice_params
-    params.require(:article).permit(:title, :text)
+    params.require(:notice).permit(:title, :text)
   end
 end
