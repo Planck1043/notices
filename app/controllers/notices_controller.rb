@@ -8,9 +8,12 @@ class NoticesController < ApplicationController
 
   def create
     @notice = Notice.new(notice_params)
-    @notice.save
 
-    redirect_to @notice
+    if @notice.save
+      redirect_to @notice
+    else
+      render 'new'
+    end
   end
 
   def show
