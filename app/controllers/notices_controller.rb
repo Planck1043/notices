@@ -9,6 +9,7 @@ class NoticesController < ApplicationController
 
   def create
     @notice = Notice.new(notice_params)
+    binding.pry
 
     if @notice.save
       redirect_to @notice
